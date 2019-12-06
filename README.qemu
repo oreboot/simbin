@@ -2,7 +2,25 @@ This qemu was create as follows:
     git clone https://github.com/qemu/qemu && cd qemu 
     git checkout v4.2.0-rc3
     mkdir build-riscv64 && cd build-riscv64
-    ../configure --target-list=riscv64-softmmu
+    # force useless shit off
+rminnich@xcpu:~/projects/oreboot/qemu$ git diff
+diff --git a/configure b/configure
+index 6099be1d84..b8376dce77 100755
+--- a/configure
++++ b/configure
+-  audio_drv_list="try-pa oss"
+-  audio_possible_drivers="oss alsa sdl pa"
++  audio_drv_list=""
++  audio_possible_drivers=""
+   linux="yes"
+   linux_user="yes"
+-  kvm="yes"
++  kvm="no"
+   QEMU_INCLUDES="-I\$(SRC_PATH)/linux-headers -I$PWD/linux-headers $QEMU_INCLUDES"
+   supported_os="yes"
+-  libudev="yes"
++  libudev="no"
+    ../configure --target-list=riscv64-softmmu --static --audio-drv-list=""  --without-default-devices --disable-vnc 
     make -j16
 
 qemu LICENSE
