@@ -10,8 +10,15 @@ git apply ../fix_qemu_sphinx_warning.patch
 # for that purpose.
 git apply ../tweak_linux_config_options.patch
 
-echo 'Successfully applied the required patches. Building now...'
+echo 'Successfully applied the required patches. Configuring now...'
 
 mkdir build-riscv64 && cd build-riscv64
 ../configure --target-list=riscv64-softmmu --static --audio-drv-list=""  --without-default-devices --disable-vnc
-make -j4
+
+echo "Successfully configured. Building now..."
+# On my machine, configuration step did not collect all the dependencies
+# required to build Qemu. So manually appending them here, even if they
+# are present already.
+awk -F '=' -i inplace '{ if ($1 == "GIO_LIBS") { print $0 " -luuid -lblkid" } else { print $0 } }' config-host.mak
+
+# make -j4

@@ -33,6 +33,9 @@ https://www.mail-archive.com/qemu-devel@nongnu.org/msg723079.html
 
 qemu LICENSE
 
+Make sure to install libmount-dev, libselinux1-dev on Ubuntu, or similar
+packages for other systems.
+
 The QEMU distribution includes both the QEMU emulator and
 various firmware files.  These are separate programs that are
 distributed together for our users' convenience, and they have
