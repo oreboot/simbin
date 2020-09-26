@@ -27,14 +27,16 @@ index 6099be1d84..b8376dce77 100755
     ../configure --target-list=riscv64-softmmu --static --audio-drv-list=""  --without-default-devices --disable-vnc
     make -j16
 
-Attention! To build Qemu, I had to use use this patch as a workaround
-to a Sphinx-related problem which terminated the build:
+The following problems were encountered when building on Ubuntu 18.04.
+- had to use use this patch as a workaround to a Sphinx-related problem
+which terminated the build:
 https://www.mail-archive.com/qemu-devel@nongnu.org/msg723079.html
 
-qemu LICENSE
+- make sure to install libmount-dev, libselinux1-dev on Ubuntu, or
+similar packages for other systems. Also see the part of build.sh that
+tweaks the automatically generate config-host.mak.
 
-Make sure to install libmount-dev, libselinux1-dev on Ubuntu, or similar
-packages for other systems.
+qemu LICENSE
 
 The QEMU distribution includes both the QEMU emulator and
 various firmware files.  These are separate programs that are
