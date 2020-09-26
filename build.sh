@@ -21,4 +21,4 @@ echo "Successfully configured. Building now..."
 # are present already.
 awk -F '=' -i inplace '{ if ($1 == "GIO_LIBS") { print $0 " -luuid -lblkid" } else { print $0 } }' config-host.mak
 
-# make -j4
+make -j4
