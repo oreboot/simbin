@@ -27,6 +27,10 @@ index 6099be1d84..b8376dce77 100755
     ../configure --target-list=riscv64-softmmu --static --audio-drv-list=""  --without-default-devices --disable-vnc
     make -j16
 
+Attention! To build Qemu, I had to use use this patch as a workaround
+to a Sphinx-related problem which terminated the build:
+https://www.mail-archive.com/qemu-devel@nongnu.org/msg723079.html
+
 qemu LICENSE
 
 The QEMU distribution includes both the QEMU emulator and
