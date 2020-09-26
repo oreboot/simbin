@@ -1,8 +1,12 @@
 This qemu was create as follows:
-    git clone https://github.com/qemu/qemu && cd qemu 
-    git checkout v4.2.0-rc3
+    git clone https://github.com/qemu/qemu && cd qemu
+    # this is an old version, use the recent one
+    # git checkout v4.2.0-rc3
+
+    git checkout v5.1.0
+
     mkdir build-riscv64 && cd build-riscv64
-    # force useless shit off
+    # force useless shit off - the following applies when target os is Linux, see the configure script
 rminnich@xcpu:~/projects/oreboot/qemu$ git diff
 diff --git a/configure b/configure
 index 6099be1d84..b8376dce77 100755
@@ -20,7 +24,7 @@ index 6099be1d84..b8376dce77 100755
    supported_os="yes"
 -  libudev="yes"
 +  libudev="no"
-    ../configure --target-list=riscv64-softmmu --static --audio-drv-list=""  --without-default-devices --disable-vnc 
+    ../configure --target-list=riscv64-softmmu --static --audio-drv-list=""  --without-default-devices --disable-vnc
     make -j16
 
 qemu LICENSE

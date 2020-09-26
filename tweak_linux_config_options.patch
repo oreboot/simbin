@@ -1,0 +1,23 @@
+diff --git a/configure b/configure
+index 2acc4d1465..adbf541c2f 100755
+--- a/configure
++++ b/configure
+@@ -907,14 +907,14 @@ Haiku)
+   LIBS="-lposix_error_mapper -lnetwork -lbsd $LIBS"
+ ;;
+ Linux)
+-  audio_drv_list="try-pa oss"
+-  audio_possible_drivers="oss alsa sdl pa"
++  audio_drv_list=""
++  audio_possible_drivers=""
+   linux="yes"
+   linux_user="yes"
+-  kvm="yes"
++  kvm="no"
+   QEMU_INCLUDES="-isystem \$(SRC_PATH)/linux-headers -isystem $PWD/linux-headers $QEMU_INCLUDES"
+   supported_os="yes"
+-  libudev="yes"
++  libudev="no"
+ ;;
+ esac
+ 
