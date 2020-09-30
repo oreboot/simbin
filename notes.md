@@ -22,3 +22,7 @@ could just disable that device.
 
 Also anyway need to update QEMU to version 5.1.0, so all the builds
 should be executed with that version.
+
+Also I thought that using softmmut-* target requries that we also copy
+the qemu-img binary to usr/bin, but now seems like that is not a
+requirement with --static flag.
