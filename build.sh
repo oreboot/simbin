@@ -13,7 +13,8 @@ git apply ../tweak_linux_config_options.patch
 echo 'Successfully applied the required patches. Configuring now...'
 # Most importantly, note '--static'
 mkdir build-riscv64 && cd build-riscv64
-../configure --target-list=riscv64-linux-user --static --disable-vnc --without-default-devices
+
+../configure --target-list=riscv64-softmmu --static --audio-drv-list=""  --without-default-devices --disable-vnc
 
 echo "Successfully configured. Building now..."
 # On my machine, configuration step did not collect all the dependencies
