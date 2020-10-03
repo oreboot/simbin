@@ -20,6 +20,7 @@ echo "Successfully configured. Building now..."
 # On my machine, configuration step did not collect all the dependencies
 # required to build Qemu. So manually appending them here, even if they
 # are present already.
+sudo apt install libblkid-dev libselinux1-dev uuid-dev libmount-dev
 awk -F '=' -i inplace '{ if ($1 == "GIO_LIBS") { print $0 " -lblkid -luuid" } else { print $0 } }' config-host.mak
 
 make -j4
